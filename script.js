@@ -16,6 +16,37 @@ if (navToggle && mainNav) {
   });
 }
 
+// Sidebar (panel geser dibuka lewat tombol garis tiga)
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarPanel = document.getElementById('sidebarPanel');
+const sidebarClose = document.getElementById('sidebarClose');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+function openSidebar() {
+  sidebarPanel.classList.add('open');
+  sidebarOverlay.classList.add('visible');
+  sidebarToggle.setAttribute('aria-expanded', 'true');
+}
+function closeSidebar() {
+  sidebarPanel.classList.remove('open');
+  sidebarOverlay.classList.remove('visible');
+  sidebarToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (sidebarToggle && sidebarPanel && sidebarOverlay) {
+  sidebarToggle.addEventListener('click', () => {
+    sidebarPanel.classList.contains('open') ? closeSidebar() : openSidebar();
+  });
+  sidebarClose.addEventListener('click', closeSidebar);
+  sidebarOverlay.addEventListener('click', closeSidebar);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSidebar();
+  });
+  sidebarPanel.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeSidebar);
+  });
+}
+
 // Tahun otomatis di footer
 const tahunEl = document.getElementById('tahun');
 if (tahunEl) tahunEl.textContent = new Date().getFullYear();
@@ -31,15 +62,3 @@ if (contactForm) {
     }
   });
 }
-
-document.querySelectorAll('.sidebar-widget a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  });
-});
