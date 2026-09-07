@@ -51,6 +51,39 @@ if (sidebarToggle && sidebarPanel && sidebarOverlay) {
 const tahunEl = document.getElementById('tahun');
 if (tahunEl) tahunEl.textContent = new Date().getFullYear();
 
+// Formulir Layanan Masyarakat — susun pesan lalu buka WhatsApp/email
+const layananForm = document.getElementById('layananForm');
+if (layananForm) {
+  const nomorWhatsAppDesa = '6281144336654'; // dari nomor kontak desa; ganti jika perlu
+  const emailDesa = 'info@desa-cihirup.kuningankab.go.id';
+
+  function susunPesan() {
+    const jenis = document.getElementById('lJenis').value;
+    const nama = document.getElementById('lNama').value;
+    const kontak = document.getElementById('lKontak').value;
+    const keterangan = document.getElementById('lKeterangan').value;
+
+    if (!jenis || !nama || !kontak || !keterangan) {
+      alert('Mohon lengkapi semua kolom terlebih dahulu.');
+      return null;
+    }
+    return `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
+  }
+
+  document.getElementById('kirimWA').addEventListener('click', () => {
+    const pesan = susunPesan();
+    if (!pesan) return;
+    window.open(`https://wa.me/${nomorWhatsAppDesa}?text=${encodeURIComponent(pesan)}`, '_blank');
+  });
+
+  document.getElementById('kirimEmail').addEventListener('click', () => {
+    const pesan = susunPesan();
+    if (!pesan) return;
+    const jenis = document.getElementById('lJenis').value;
+    window.location.href = `mailto:${emailDesa}?subject=${encodeURIComponent('Pengajuan Layanan: ' + jenis)}&body=${encodeURIComponent(pesan)}`;
+  });
+}
+
 // Form kontak — placeholder, perlu dihubungkan ke layanan seperti Formspree
 // agar bisa mengirim email tanpa server sendiri (lihat README.md).
 const contactForm = document.getElementById('contactForm');
