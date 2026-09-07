@@ -279,6 +279,12 @@
               <label for="lKeterangan">Keperluan / Isi Pengaduan</label>
               <textarea id="lKeterangan" name="keterangan" required></textarea>
             </div>
+            <div class="form-row">
+              <label for="lFoto">Foto Kejadian/Bukti (opsional)</label>
+              <input type="file" id="lFoto" name="foto" accept="image/*" capture="environment">
+              <img id="lFotoPreview" alt="Pratinjau foto" hidden>
+              <p class="form-note" id="lFotoNote" hidden>Foto tidak bisa otomatis terlampir ke WhatsApp/email — setelah aplikasi terbuka, lampirkan foto ini secara manual dari galeri kamu.</p>
+            </div>
             <div class="cta-row">
               <button type="button" class="btn btn-primary" id="kirimWA">Kirim via WhatsApp</button>
               <button type="button" class="btn btn-ghost" id="kirimEmail">Kirim via Email</button>
