@@ -80,14 +80,19 @@ if (layananForm) {
   function susunPesan() {
     const jenis = document.getElementById('lJenis').value;
     const nama = document.getElementById('lNama').value;
+    const nik = document.getElementById('lNIK').value.trim();
     const kontak = document.getElementById('lKontak').value;
     const keterangan = document.getElementById('lKeterangan').value;
 
-    if (!jenis || !nama || !kontak || !keterangan) {
+    if (!jenis || !nama || !nik || !kontak || !keterangan) {
       alert('Mohon lengkapi semua kolom terlebih dahulu.');
       return null;
     }
-    let pesan = `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
+    if (!/^\d{16}$/.test(nik)) {
+      alert('NIK harus terdiri dari 16 digit angka.');
+      return null;
+    }
+    let pesan = `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nNIK: ${nik}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
     if (fotoInput.files[0]) {
       pesan += `\n\n(Ada foto pendukung — akan dilampirkan menyusul secara manual)`;
     }
