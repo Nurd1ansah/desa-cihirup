@@ -54,7 +54,7 @@ if (tahunEl) tahunEl.textContent = new Date().getFullYear();
 // Formulir Layanan Masyarakat — susun pesan lalu buka WhatsApp/email
 const layananForm = document.getElementById('layananForm');
 if (layananForm) {
-  const nomorWhatsAppDesa = '6281144336654'; // dari nomor kontak desa; ganti jika perlu
+  const nomorWhatsAppDesa = '6285797907451'; // nomor tujuan pengajuan layanan
   const emailDesa = 'info@desa-cihirup.kuningankab.go.id';
 
   function susunPesan() {
