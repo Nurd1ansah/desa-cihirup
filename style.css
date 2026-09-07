@@ -416,3 +416,82 @@ footer .wrap{
 }
 footer p{ margin: 0; font-size: .85rem; color: rgba(239,236,216,0.8); max-width: none; }
 footer a{ color: var(--parchment); }
+/* Layout 2 Kolom dengan Sticky Sidebar */
+
+.main-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Widget Sidebar */
+.sidebar-widget {
+  background-color: #EFECD8; /* Parchment Zaitun */
+  border: 1px solid rgba(43, 36, 25, 0.15);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.sidebar-widget h3 {
+  font-family: "Source Serif 4", serif;
+  color: #3F5B34; /* Hijau Padi Tua */
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #C99A2E; /* Emas Gabah */
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-widget li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.sidebar-widget a {
+  color: #2B2419;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sidebar-widget a:hover {
+  color: #8FAE5D; /* Hijau Padi Muda */
+}
+
+/* Responsive: Sembunyikan/Tumpuk Sidebar di HP */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .sidebar-sticky {
+    position: static;
+  }
+}
