@@ -221,13 +221,8 @@ section.alt{ background: var(--parchment-alt); }
   font-size: 1rem;
 }
 
-/* ---------------- Layout dua kolom: konten + sidebar ---------------- */
-.page-layout{
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 56px;
-  align-items: start;
-}
+/* ---------------- Layout konten + tombol sidebar ---------------- */
+.page-layout{ display: block; }
 .main-col{ min-width: 0; }
 .main-col .block{
   padding: 48px 28px;
@@ -236,15 +231,74 @@ section.alt{ background: var(--parchment-alt); }
 .main-col .block + .block{ border-top: 1px solid var(--garis); }
 .main-col .block:first-child{ padding-top: 8px; }
 
+/* Tombol garis tiga pembuka sidebar */
+.sidebar-toggle{
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 70;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kertas-putih);
+  border: 1px solid var(--garis);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--padi-tua-gelap);
+}
+.sidebar-toggle:hover{ background: var(--parchment-alt); }
+.sidebar-toggle svg{ width: 20px; height: 20px; }
+
+.sidebar-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(43,36,25,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease;
+  z-index: 65;
+}
+.sidebar-overlay.visible{ opacity: 1; visibility: visible; }
+
 .sidebar{
-  position: sticky;
-  top: 84px;
-  align-self: start;
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  max-width: 86vw;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--parchment);
+  border-left: 1px solid var(--garis);
+  box-shadow: -8px 0 24px rgba(43,36,25,0.12);
+  z-index: 66;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 48px 0;
+  padding: 76px 22px 32px;
+  transition: right .28s ease;
 }
+.sidebar.open{ right: 0; }
+
+.sidebar-close{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--garis);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--tanah);
+}
+.sidebar-close:hover{ background: var(--parchment-alt); }
+.sidebar-close svg{ width: 16px; height: 16px; }
 .side-box{
   background: var(--kertas-putih);
   border: 1px solid var(--garis);
@@ -295,9 +349,8 @@ section.alt{ background: var(--parchment-alt); }
 }
 .side-kontak a:hover{ color: var(--padi-tua-gelap); }
 
-@media (max-width: 900px){
-  .page-layout{ grid-template-columns: 1fr; gap: 32px; }
-  .sidebar{ position: static; padding-top: 0; }
+@media (max-width: 480px){
+  .sidebar{ width: 100%; max-width: 100%; right: -100%; }
 }
 
 /* ---------------- Profil / batas wilayah ---------------- */
