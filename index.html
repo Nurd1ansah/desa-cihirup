@@ -32,6 +32,7 @@
         <li><a href="#profil">Profil</a></li>
         <li><a href="#pemerintahan">Pemerintahan</a></li>
         <li><a href="#potensi">Potensi</a></li>
+        <li><a href="#layanan">Layanan</a></li>
         <li><a href="#berita">Kegiatan</a></li>
         <li><a href="#galeri">Galeri</a></li>
         <li><a href="#kontak">Kontak</a></li>
@@ -193,6 +194,100 @@
         </div>
       </section>
 
+      <!-- ============ LAYANAN MASYARAKAT ============ -->
+      <section id="layanan" class="block">
+        <div class="section-head">
+          <h2>Layanan Masyarakat</h2>
+          <span class="section-num">Surat &amp; pengaduan</span>
+        </div>
+        <p>Warga dapat mengajukan surat-menyurat atau menyampaikan pengaduan/aspirasi langsung dari halaman ini. Formulir di bawah akan menyiapkan pesan yang tinggal dikirim lewat WhatsApp atau email ke kantor desa — bukan pengajuan otomatis, jadi tetap akan diproses oleh perangkat desa setelah pesan diterima.</p>
+
+        <h3 style="margin-top:2em;">Jenis Surat yang Bisa Diajukan</h3>
+        <div class="layanan-grid">
+          <div class="layanan-item">
+            <h4>Surat Keterangan Domisili</h4>
+            <ul>
+              <li>Fotokopi KTP &amp; KK</li>
+              <li>Surat pengantar RT/RW</li>
+            </ul>
+          </div>
+          <div class="layanan-item">
+            <h4>Surat Keterangan Tidak Mampu (SKTM)</h4>
+            <ul>
+              <li>Fotokopi KTP &amp; KK</li>
+              <li>Surat pengantar RT/RW</li>
+              <li>Keperluan (sekolah/berobat/lainnya)</li>
+            </ul>
+          </div>
+          <div class="layanan-item">
+            <h4>Surat Keterangan Usaha</h4>
+            <ul>
+              <li>Fotokopi KTP &amp; KK</li>
+              <li>Keterangan lokasi usaha</li>
+            </ul>
+          </div>
+          <div class="layanan-item">
+            <h4>Surat Pengantar KTP/KK</h4>
+            <ul>
+              <li>KTP/KK lama (jika ada)</li>
+              <li>Pas foto (untuk pengurusan KTP)</li>
+            </ul>
+          </div>
+          <div class="layanan-item">
+            <h4>Surat Keterangan Kelahiran/Kematian</h4>
+            <ul>
+              <li>Fotokopi KTP &amp; KK</li>
+              <li>Keterangan bidan/RS atau saksi</li>
+            </ul>
+          </div>
+          <div class="layanan-item">
+            <h4>Surat Keterangan Belum Menikah</h4>
+            <ul>
+              <li>Fotokopi KTP &amp; KK</li>
+              <li>Surat pengantar RT/RW</li>
+            </ul>
+          </div>
+        </div>
+        <p class="berita-note">Syarat di atas mengikuti praktik umum administrasi desa di Indonesia dan perlu dikonfirmasi ulang oleh admin desa — bisa berbeda tergantung ketentuan setempat.</p>
+
+        <h3 style="margin-top:2.2em;">Formulir Pengajuan</h3>
+        <div class="form-card layanan-form">
+          <form id="layananForm">
+            <div class="form-row">
+              <label for="lJenis">Jenis Layanan</label>
+              <select id="lJenis" name="jenis" required>
+                <option value="">Pilih jenis layanan</option>
+                <option>Surat Keterangan Domisili</option>
+                <option>Surat Keterangan Tidak Mampu (SKTM)</option>
+                <option>Surat Keterangan Usaha</option>
+                <option>Surat Pengantar KTP/KK</option>
+                <option>Surat Keterangan Kelahiran/Kematian</option>
+                <option>Surat Keterangan Belum Menikah</option>
+                <option>Pengaduan/Aspirasi Warga</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="lNama">Nama Lengkap</label>
+              <input type="text" id="lNama" name="nama" required>
+            </div>
+            <div class="form-row">
+              <label for="lKontak">Nomor WhatsApp / Email untuk Dihubungi Kembali</label>
+              <input type="text" id="lKontak" name="kontak" required>
+            </div>
+            <div class="form-row">
+              <label for="lKeterangan">Keperluan / Isi Pengaduan</label>
+              <textarea id="lKeterangan" name="keterangan" required></textarea>
+            </div>
+            <div class="cta-row">
+              <button type="button" class="btn btn-primary" id="kirimWA">Kirim via WhatsApp</button>
+              <button type="button" class="btn btn-ghost" id="kirimEmail">Kirim via Email</button>
+            </div>
+          </form>
+          <p class="form-note">Tombol di atas akan membuka aplikasi WhatsApp atau email kamu dengan pesan yang sudah tersusun rapi — tinggal ditinjau lalu dikirim.</p>
+        </div>
+      </section>
+
       <!-- ============ BERITA / KEGIATAN ============ -->
       <section id="berita" class="block">
         <div class="section-head">
@@ -314,6 +409,7 @@
           <a href="#profil">Profil Desa</a>
           <a href="#pemerintahan">Pemerintahan &amp; Sejarah</a>
           <a href="#potensi">Potensi Desa</a>
+          <a href="#layanan">Layanan Masyarakat</a>
           <a href="#berita">Kegiatan Desa</a>
           <a href="#galeri">Galeri</a>
           <a href="#kontak">Kontak</a>
