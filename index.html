@@ -276,6 +276,59 @@
               <input type="text" id="lNIK" name="nik" inputmode="numeric" pattern="[0-9]{16}" maxlength="16" placeholder="16 digit sesuai KTP" required>
             </div>
             <div class="form-row">
+              <label for="lJK">Jenis Kelamin</label>
+              <select id="lJK" name="jenis_kelamin" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option>Laki-laki</option>
+                <option>Perempuan</option>
+              </select>
+            </div>
+            <div class="form-row form-row-inline">
+              <div>
+                <label for="lTempatLahir">Tempat Lahir</label>
+                <input type="text" id="lTempatLahir" name="tempat_lahir" required>
+              </div>
+              <div>
+                <label for="lTanggalLahir">Tanggal Lahir</label>
+                <input type="date" id="lTanggalLahir" name="tanggal_lahir" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="lAgama">Agama</label>
+              <select id="lAgama" name="agama" required>
+                <option value="">Pilih agama</option>
+                <option>Islam</option>
+                <option>Kristen</option>
+                <option>Katolik</option>
+                <option>Hindu</option>
+                <option>Buddha</option>
+                <option>Konghucu</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="lPekerjaan">Pekerjaan</label>
+              <input type="text" id="lPekerjaan" name="pekerjaan" required>
+            </div>
+            <div class="form-row">
+              <label>Alamat</label>
+              <div class="form-row-inline form-alamat">
+                <div>
+                  <label for="lDusun">Dusun</label>
+                  <input type="text" id="lDusun" name="dusun" placeholder="mis. Cihirup I" required>
+                </div>
+                <div>
+                  <label for="lRT">RT</label>
+                  <input type="text" id="lRT" name="rt" inputmode="numeric" maxlength="3" placeholder="000" required>
+                </div>
+                <div>
+                  <label for="lRW">RW</label>
+                  <input type="text" id="lRW" name="rw" inputmode="numeric" maxlength="3" placeholder="000" required>
+                </div>
+              </div>
+              <p class="form-note" style="margin-top:6px;">Alamat lengkap otomatis mengikuti format: Dusun ______ RT. 000 RW. 000, Desa Cihirup, Kecamatan Ciawigebang, Kabupaten Kuningan.</p>
+            </div>
+            <div class="form-row">
               <label for="lKontak">Nomor WhatsApp / Email untuk Dihubungi Kembali</label>
               <input type="text" id="lKontak" name="kontak" required>
             </div>
