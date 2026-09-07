@@ -568,6 +568,15 @@ section.alt{ background: var(--parchment-alt); }
 }
 .form-row textarea{ min-height: 100px; resize: vertical; }
 .form-note{ font-size: .8rem; color: var(--padi-tua); margin-top: 10px; }
+.form-row-inline{ display: flex; gap: 12px; }
+.form-row-inline > div{ flex: 1; }
+.form-alamat > div:nth-child(2),
+.form-alamat > div:nth-child(3){ flex: 0 0 90px; }
+@media (max-width: 480px){
+  .form-row-inline{ flex-wrap: wrap; }
+  .form-alamat > div:nth-child(2),
+  .form-alamat > div:nth-child(3){ flex: 1 1 45%; }
+}
 
 /* ---------------- Footer ---------------- */
 footer{
