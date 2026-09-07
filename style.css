@@ -233,12 +233,9 @@ section.alt{ background: var(--parchment-alt); }
 
 /* Tombol garis tiga pembuka sidebar */
 .sidebar-toggle{
-  position: fixed;
-  top: 18px;
-  right: 24px;
-  z-index: 70;
-  width: 44px;
-  height: 44px;
+  flex: none;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,6 +244,7 @@ section.alt{ background: var(--parchment-alt); }
   border-radius: 3px;
   cursor: pointer;
   color: var(--padi-tua-gelap);
+  margin-right: 6px;
 }
 .sidebar-toggle:hover{ background: var(--parchment-alt); }
 .sidebar-toggle svg{ width: 20px; height: 20px; }
@@ -265,22 +263,22 @@ section.alt{ background: var(--parchment-alt); }
 .sidebar{
   position: fixed;
   top: 0;
-  right: -340px;
+  left: -340px;
   width: 320px;
   max-width: 86vw;
   height: 100vh;
   overflow-y: auto;
   background: var(--parchment);
-  border-left: 1px solid var(--garis);
-  box-shadow: -8px 0 24px rgba(43,36,25,0.12);
+  border-right: 1px solid var(--garis);
+  box-shadow: 8px 0 24px rgba(43,36,25,0.12);
   z-index: 66;
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 76px 22px 32px;
-  transition: right .28s ease;
+  transition: left .28s ease;
 }
-.sidebar.open{ right: 0; }
+.sidebar.open{ left: 0; }
 
 .sidebar-close{
   position: absolute;
@@ -350,7 +348,7 @@ section.alt{ background: var(--parchment-alt); }
 .side-kontak a:hover{ color: var(--padi-tua-gelap); }
 
 @media (max-width: 480px){
-  .sidebar{ width: 100%; max-width: 100%; right: -100%; }
+  .sidebar{ width: 100%; max-width: 100%; left: -100%; }
 }
 
 /* ---------------- Profil / batas wilayah ---------------- */
