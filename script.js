@@ -57,6 +57,26 @@ if (layananForm) {
   const nomorWhatsAppDesa = '6285797907451'; // nomor tujuan pengajuan layanan
   const emailDesa = 'info@desa-cihirup.kuningankab.go.id';
 
+  // Pratinjau foto yang diunggah
+  const fotoInput = document.getElementById('lFoto');
+  const fotoPreview = document.getElementById('lFotoPreview');
+  const fotoNote = document.getElementById('lFotoNote');
+  fotoInput.addEventListener('change', () => {
+    const file = fotoInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        fotoPreview.src = e.target.result;
+        fotoPreview.hidden = false;
+      };
+      reader.readAsDataURL(file);
+      fotoNote.hidden = false;
+    } else {
+      fotoPreview.hidden = true;
+      fotoNote.hidden = true;
+    }
+  });
+
   function susunPesan() {
     const jenis = document.getElementById('lJenis').value;
     const nama = document.getElementById('lNama').value;
@@ -67,18 +87,28 @@ if (layananForm) {
       alert('Mohon lengkapi semua kolom terlebih dahulu.');
       return null;
     }
-    return `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
+    let pesan = `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
+    if (fotoInput.files[0]) {
+      pesan += `\n\n(Ada foto pendukung — akan dilampirkan menyusul secara manual)`;
+    }
+    return pesan;
   }
 
   document.getElementById('kirimWA').addEventListener('click', () => {
     const pesan = susunPesan();
     if (!pesan) return;
+    if (fotoInput.files[0]) {
+      alert('Foto tidak ikut terkirim otomatis. Setelah WhatsApp terbuka, lampirkan foto tersebut secara manual dari galeri sebelum mengirim.');
+    }
     window.open(`https://wa.me/${nomorWhatsAppDesa}?text=${encodeURIComponent(pesan)}`, '_blank');
   });
 
   document.getElementById('kirimEmail').addEventListener('click', () => {
     const pesan = susunPesan();
     if (!pesan) return;
+    if (fotoInput.files[0]) {
+      alert('Foto tidak ikut terkirim otomatis. Setelah aplikasi email terbuka, lampirkan foto tersebut secara manual sebelum mengirim.');
+    }
     const jenis = document.getElementById('lJenis').value;
     window.location.href = `mailto:${emailDesa}?subject=${encodeURIComponent('Pengajuan Layanan: ' + jenis)}&body=${encodeURIComponent(pesan)}`;
   });
