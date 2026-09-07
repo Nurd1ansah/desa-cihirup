@@ -81,10 +81,18 @@ if (layananForm) {
     const jenis = document.getElementById('lJenis').value;
     const nama = document.getElementById('lNama').value;
     const nik = document.getElementById('lNIK').value.trim();
+    const jk = document.getElementById('lJK').value;
+    const tempatLahir = document.getElementById('lTempatLahir').value;
+    const tanggalLahir = document.getElementById('lTanggalLahir').value;
+    const agama = document.getElementById('lAgama').value;
+    const pekerjaan = document.getElementById('lPekerjaan').value;
+    const dusun = document.getElementById('lDusun').value;
+    const rt = document.getElementById('lRT').value.padStart(3, '0');
+    const rw = document.getElementById('lRW').value.padStart(3, '0');
     const kontak = document.getElementById('lKontak').value;
     const keterangan = document.getElementById('lKeterangan').value;
 
-    if (!jenis || !nama || !nik || !kontak || !keterangan) {
+    if (!jenis || !nama || !nik || !jk || !tempatLahir || !tanggalLahir || !agama || !pekerjaan || !dusun || !rt || !rw || !kontak || !keterangan) {
       alert('Mohon lengkapi semua kolom terlebih dahulu.');
       return null;
     }
@@ -92,7 +100,22 @@ if (layananForm) {
       alert('NIK harus terdiri dari 16 digit angka.');
       return null;
     }
-    let pesan = `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\nJenis Layanan: ${jenis}\nNama: ${nama}\nNIK: ${nik}\nKontak Balasan: ${kontak}\nKeperluan/Isi: ${keterangan}`;
+
+    const tglLahirFormat = new Date(tanggalLahir + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    const alamat = `Dusun ${dusun} RT. ${rt} RW. ${rw}, Desa Cihirup, Kecamatan Ciawigebang, Kabupaten Kuningan`;
+
+    let pesan = `Assalamu'alaikum, saya ingin mengajukan layanan desa.\n\n`
+      + `Jenis Layanan: ${jenis}\n`
+      + `Nama: ${nama}\n`
+      + `NIK: ${nik}\n`
+      + `Jenis Kelamin: ${jk}\n`
+      + `Tempat, Tanggal Lahir: ${tempatLahir}, ${tglLahirFormat}\n`
+      + `Agama: ${agama}\n`
+      + `Pekerjaan: ${pekerjaan}\n`
+      + `Alamat: ${alamat}\n`
+      + `Kontak Balasan: ${kontak}\n`
+      + `Keperluan/Isi: ${keterangan}`;
+
     if (fotoInput.files[0]) {
       pesan += `\n\n(Ada foto pendukung — akan dilampirkan menyusul secara manual)`;
     }
