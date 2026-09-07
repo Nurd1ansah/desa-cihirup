@@ -460,6 +460,13 @@ section.alt{ background: var(--parchment-alt); }
 .layanan-item li{ margin-bottom: 4px; }
 .layanan-form{ margin-top: 20px; max-width: 620px; }
 .layanan-form .cta-row{ margin-top: 8px; }
+#lFotoPreview{
+  margin-top: 10px;
+  max-width: 160px;
+  max-height: 160px;
+  border: 1px solid var(--garis);
+  object-fit: cover;
+}
 @media (max-width: 640px){
   .layanan-grid{ grid-template-columns: 1fr; }
 }
